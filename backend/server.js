@@ -27,7 +27,9 @@ app.use(
 
 //create the route
 app.get('/', (req, res) => {
-	res.send('hello')
+	res.send(
+		'<div style="margin-top:10em; text-align:center;display:flex;justify-conten:center;align-items:center;height:80vh"> <h1>Welcome to RecipeBook server side</h1></div>'
+	)
 })
 
 //use route created in routes
