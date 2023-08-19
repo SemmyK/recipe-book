@@ -31,9 +31,10 @@ app.use(errorHandler)
 const startApp = async () => {
 	try {
 		//connect to DB
-		await connectDB()
-		app.listen(PORT, (req, res) => {
-			console.log(`Connected to db successfully. Server listening at ${PORT}`)
+		await connectDB().then(() => {
+			app.listen(PORT, (req, res) => {
+				console.log(`Connected to db successfully. Server listening at ${PORT}`)
+			})
 		})
 	} catch (error) {
 		console.log(error)
