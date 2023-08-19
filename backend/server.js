@@ -13,14 +13,14 @@ const PORT = process.env.PORT || 8000
 
 //initialize app
 const app = express()
-app.get('/', (req, res) => {
-	res.status(200).send('hello')
-})
+
 //add middleware (body-parser)
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
-app.use(express.static(__dirname, '/frontend/build'))
 
+app.get('/', (req, res) => {
+	res.status(200).send('hello')
+})
 //use route created in routes
 app.use('/api/users', require('./routes/userRoutes'))
 app.use('/api/recipes', require('./routes/recipeRoutes'))
