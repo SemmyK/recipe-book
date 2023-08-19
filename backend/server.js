@@ -18,12 +18,14 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
+//create the route
 app.get('/', (req, res) => {
-	res.status(200).send('hello')
+	res.send('hello')
 })
+
 //use route created in routes
 app.use('/api/users', require('./routes/userRoutes'))
-app.use('/api/recipes', require('./routes/recipeRoutes'))
+app.use('api/recipes', require('./routes/recipeRoutes'))
 
 //allow app to use errorHandler
 app.use(errorHandler)
@@ -31,10 +33,9 @@ app.use(errorHandler)
 const startApp = async () => {
 	try {
 		//connect to DB
-		await connectDB().then(() => {
-			app.listen(PORT, (req, res) => {
-				console.log(`Connected to db successfully. Server listening at ${PORT}`)
-			})
+		await connectDB()
+		app.listen(PORT, (req, res) => {
+			console.log(`Connected to db successfully. Server listening at ${PORT}`)
 		})
 	} catch (error) {
 		console.log(error)

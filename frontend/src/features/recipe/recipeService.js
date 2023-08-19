@@ -1,15 +1,11 @@
 import axios from 'axios'
 
-const API_URL = 'https://recipe-book-backend-steel.vercel.app/api/recipes'
+const API_URL = '/api/recipes'
 
 //get all recipes
 const getAllRecipes = async () => {
-	const config = {
-		headers: {
-			AccessControlAllowHeaders: '*',
-		},
-	}
-	const response = await axios.get(`${API_URL}`, config)
+	const response = await axios.get(`${API_URL}`)
+
 	return response.data
 }
 
@@ -18,7 +14,6 @@ const getUserRecipes = async (userId, token) => {
 	const config = {
 		headers: {
 			Authorization: `Bearer ${token}`,
-			AccessControlAllowHeaders: '*',
 		},
 	}
 
@@ -29,24 +24,14 @@ const getUserRecipes = async (userId, token) => {
 
 //search recipes
 const searchRecipes = async searchTerm => {
-	const config = {
-		headers: {
-			AccessControlAllowHeaders: '*',
-		},
-	}
-	const response = await axios.get(`${API_URL}?title=${searchTerm}`, config)
+	const response = await axios.get(`${API_URL}?title=${searchTerm}`)
 
 	return response.data
 }
 
 //get single recipe
 const getRecipe = async recipeId => {
-	const config = {
-		headers: {
-			AccessControlAllowHeaders: '*',
-		},
-	}
-	const response = await axios.get(`${API_URL}/${recipeId}`, config)
+	const response = await axios.get(`${API_URL}/${recipeId}`)
 
 	return response.data
 }
@@ -56,14 +41,13 @@ const createRecipe = async (recipeData, token) => {
 	const config = {
 		headers: {
 			Authorization: `Bearer ${token}`,
-			AccessControlAllowHeaders: '*',
 		},
 	}
 	const response = await axios.post(API_URL, recipeData, config)
 
 	const { recipe, recipes } = response.data
 
-	return { recipe, recipes, msg: 'Successfully created recipe.' }
+	return { recipe, recipes, msg: 'Successfully updated recipe.' }
 }
 
 //update recipe
@@ -71,7 +55,6 @@ const updateRecipe = async (recipeData, token) => {
 	const config = {
 		headers: {
 			Authorization: `Bearer ${token}`,
-			AccessControlAllowHeaders: '*',
 		},
 	}
 
@@ -94,7 +77,6 @@ const deleteRecipe = async (recipeId, token) => {
 	const config = {
 		headers: {
 			Authorization: `Bearer ${token}`,
-			AccessControlAllowHeaders: '*',
 		},
 	}
 
