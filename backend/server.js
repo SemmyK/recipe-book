@@ -17,6 +17,7 @@ const app = express()
 //add middleware (body-parser)
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
+app.use(express.static('../frontend'))
 
 //create the route
 app.get('/', (req, res) => {
