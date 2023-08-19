@@ -24,13 +24,6 @@ app.get('/', (req, res) => {
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
-// Your code
-if (process.env.NODE_ENV === 'production') {
-	const path = require('path')
-	app.use(express.static(path.resolve(__dirname, '../frontend/build')))
-}
-// Your code
-
 //use route created in routes
 app.use('/api/users', require('./routes/userRoutes'))
 app.use('/api/recipes', require('./routes/recipeRoutes'))
