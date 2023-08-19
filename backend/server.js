@@ -17,12 +17,6 @@ const app = express()
 //add middleware (body-parser)
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
-app.use(express.static('../frontend/build'))
-
-//create the route
-app.get('/', (req, res) => {
-	res.status(200).render('/index.html')
-})
 
 //use route created in routes
 app.use('/api/users', require('./routes/userRoutes'))
