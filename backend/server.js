@@ -1,6 +1,8 @@
 //bring in express
 const express = require('express')
 //import colors to style terminal messages
+const colors = require('colors')
+//add cors
 const cors = require('cors')
 //import dotenv
 require('dotenv').config()
