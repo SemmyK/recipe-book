@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 
 //use route created in routes
 app.use('/api/users', require('./routes/userRoutes'))
-app.use('api/recipes', require('./routes/recipeRoutes'))
+app.use('/api/recipes', require('./routes/recipeRoutes'))
 
 //allow app to use errorHandler
 app.use(errorHandler)
