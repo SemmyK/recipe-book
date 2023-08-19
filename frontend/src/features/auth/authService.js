@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'https://recipe-book-api-k0j4.onrender.com/api/users'
+const API_URL = '/api/users'
 
 //register user
 const register = async userInfo => {

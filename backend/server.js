@@ -1,7 +1,7 @@
 //bring in express
 const express = require('express')
 //import colors to style terminal messages
-const colors = require('colors')
+const cors = require('cors')
 //import dotenv
 require('dotenv').config()
 //import error handler
@@ -17,6 +17,11 @@ const app = express()
 //add middleware (body-parser)
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
+app.use(
+	cors({
+		origin: ['https://recipe-book-api-k0j4.onrender.com/'],
+	})
+)
 
 //create the route
 app.get('/', (req, res) => {
