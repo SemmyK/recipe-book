@@ -1,11 +1,15 @@
 //bring in express
 const express = require('express')
-//import colors to style terminal messages
-const colors = require('colors')
+const cors = require('cors')
 //import dotenv
 require('dotenv').config()
 //import error handler
 const errorHandler = require('./middleware/errorMiddleware')
+// Use the cors middleware
+const corsOptions = {
+	origin: 'https://recipe-book-nine.vercel.app/', // Replace with your frontend's origin
+}
+app.use(cors(corsOptions))
 //import connectDB
 const connectDB = require('./config/db')
 //define port
@@ -23,17 +27,7 @@ app.use(express.urlencoded({ extended: false }))
 // Your code
 if (process.env.NODE_ENV === 'production') {
 	const path = require('path')
-	app.use(express.static(path.resolve(__dirname, 'frontend', 'build')))
-	app.get('*', (req, res) => {
-		res.sendFile(
-			path.resolve(__dirname, 'frontend', 'build', 'index.html'),
-			function (err) {
-				if (err) {
-					res.status(500).send(err)
-				}
-			}
-		)
-	})
+	app.use(express.static(path.resolve(__dirname, '../frontend/build')))
 }
 // Your code
 
