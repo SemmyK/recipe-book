@@ -21,7 +21,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(
 	cors({
-		origin: ['https://recipe-book-api-k0j4.onrender.com/'],
+		origin: ['https://mern-recipe-book.onrender.com/', 'http://localhost:3000'],
 	})
 )
 
