@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = '/api/recipes'
+const API_URL = 'https://recipe-book-api-k0j4.onrender.com/api/recipes'
 
 //get all recipes
 const getAllRecipes = async () => {
