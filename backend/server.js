@@ -13,7 +13,9 @@ const PORT = process.env.PORT || 8000
 
 //initialize app
 const app = express()
-
+app.get('/', (req, res) => {
+	res.status(200).json({ msg: 'hello' })
+})
 //add middleware (body-parser)
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
