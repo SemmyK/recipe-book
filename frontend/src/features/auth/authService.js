@@ -1,10 +1,16 @@
 import axios from 'axios'
+import { config } from 'dotenv'
 
 const API_URL = 'https://recipe-book-backend-steel.vercel.app/api/users'
 
 //register user
 const register = async userInfo => {
-	const response = await axios.post(`${API_URL}/register`, userInfo)
+	const config = {
+		headers: {
+			AccessControlAllowHeaders: '*',
+		},
+	}
+	const response = await axios.post(`${API_URL}/register`, userInfo, config)
 
 	const { authUser, userData } = response.data
 
@@ -21,7 +27,12 @@ const register = async userInfo => {
 
 //login user
 const login = async userInfo => {
-	const response = await axios.post(`${API_URL}/login`, userInfo)
+	const config = {
+		headers: {
+			AccessControlAllowHeaders: '*',
+		},
+	}
+	const response = await axios.post(`${API_URL}/login`, userInfo, config)
 
 	const { authUser, userData } = response.data
 
@@ -44,6 +55,7 @@ const getProfile = async (id, token) => {
 	const config = {
 		headers: {
 			Authorization: `Bearer ${token}`,
+			AccessControlAllowHeaders: '*',
 		},
 	}
 
@@ -58,6 +70,7 @@ const deleteProfile = async (id, token) => {
 	const config = {
 		headers: {
 			Authorization: `Bearer ${token}`,
+			AccessControlAllowHeaders: '*',
 		},
 	}
 

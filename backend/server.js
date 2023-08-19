@@ -1,13 +1,11 @@
 //bring in express
 const express = require('express')
-const cors = require('cors')
+//import colors to style terminal messages
+const colors = require('colors')
 //import dotenv
 require('dotenv').config()
 //import error handler
 const errorHandler = require('./middleware/errorMiddleware')
-// Use the cors middleware
-
-app.use(cors())
 //import connectDB
 const connectDB = require('./config/db')
 //define port
@@ -21,6 +19,7 @@ app.get('/', (req, res) => {
 //add middleware (body-parser)
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
+app.use(express.static(__dirname, '/frontend/build'))
 
 //use route created in routes
 app.use('/api/users', require('./routes/userRoutes'))

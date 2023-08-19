@@ -4,7 +4,12 @@ const API_URL = 'https://recipe-book-backend-steel.vercel.app/api/recipes'
 
 //get all recipes
 const getAllRecipes = async () => {
-	const response = await axios.get(`${API_URL}`)
+	const config = {
+		headers: {
+			AccessControlAllowHeaders: '*',
+		},
+	}
+	const response = await axios.get(`${API_URL}`, config)
 	return response.data
 }
 
@@ -13,6 +18,7 @@ const getUserRecipes = async (userId, token) => {
 	const config = {
 		headers: {
 			Authorization: `Bearer ${token}`,
+			AccessControlAllowHeaders: '*',
 		},
 	}
 
@@ -23,14 +29,24 @@ const getUserRecipes = async (userId, token) => {
 
 //search recipes
 const searchRecipes = async searchTerm => {
-	const response = await axios.get(`${API_URL}?title=${searchTerm}`)
+	const config = {
+		headers: {
+			AccessControlAllowHeaders: '*',
+		},
+	}
+	const response = await axios.get(`${API_URL}?title=${searchTerm}`, config)
 
 	return response.data
 }
 
 //get single recipe
 const getRecipe = async recipeId => {
-	const response = await axios.get(`${API_URL}/${recipeId}`)
+	const config = {
+		headers: {
+			AccessControlAllowHeaders: '*',
+		},
+	}
+	const response = await axios.get(`${API_URL}/${recipeId}`, config)
 
 	return response.data
 }
@@ -40,6 +56,7 @@ const createRecipe = async (recipeData, token) => {
 	const config = {
 		headers: {
 			Authorization: `Bearer ${token}`,
+			AccessControlAllowHeaders: '*',
 		},
 	}
 	const response = await axios.post(API_URL, recipeData, config)
@@ -54,6 +71,7 @@ const updateRecipe = async (recipeData, token) => {
 	const config = {
 		headers: {
 			Authorization: `Bearer ${token}`,
+			AccessControlAllowHeaders: '*',
 		},
 	}
 
@@ -76,6 +94,7 @@ const deleteRecipe = async (recipeId, token) => {
 	const config = {
 		headers: {
 			Authorization: `Bearer ${token}`,
+			AccessControlAllowHeaders: '*',
 		},
 	}
 
