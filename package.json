@@ -1,7 +1,7 @@
 {
-	"name": "support-desk",
+	"name": "recipe-book",
 	"version": "1.0.0",
-	"description": "support ticket app",
+	"description": "RecipeBook MERN app",
 	"main": "server.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
