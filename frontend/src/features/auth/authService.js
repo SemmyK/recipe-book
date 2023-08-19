@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = '/api/users'
+const API_URL = 'https://recipe-book-backend-steel.vercel.app/api/users'
 
 //register user
 const register = async userInfo => {

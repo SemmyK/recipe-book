@@ -19,7 +19,23 @@ app.get('/', (req, res) => {
 //add middleware (body-parser)
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
-app.use(express.static('../frontend'))
+
+// Your code
+if (process.env.NODE_ENV === 'production') {
+	const path = require('path')
+	app.use(express.static(path.resolve(__dirname, 'frontend', 'build')))
+	app.get('*', (req, res) => {
+		res.sendFile(
+			path.resolve(__dirname, 'frontend', 'build', 'index.html'),
+			function (err) {
+				if (err) {
+					res.status(500).send(err)
+				}
+			}
+		)
+	})
+}
+// Your code
 
 //use route created in routes
 app.use('/api/users', require('./routes/userRoutes'))
