@@ -124,7 +124,7 @@ function Profile() {
 						</Row>
 					</Col>
 				</Row>
-				{userRecipes.length !== 0 && (
+				{userRecipes && userRecipes.length !== 0 && (
 					<>
 						<Row className='mb-4 text-center '>
 							<Card.Title
