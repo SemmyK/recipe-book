@@ -6,10 +6,8 @@ require('dotenv').config()
 //import error handler
 const errorHandler = require('./middleware/errorMiddleware')
 // Use the cors middleware
-const corsOptions = {
-	origin: 'https://recipe-book-nine.vercel.app/', // Replace with your frontend's origin
-}
-app.use(cors(corsOptions))
+
+app.use(cors())
 //import connectDB
 const connectDB = require('./config/db')
 //define port
