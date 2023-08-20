@@ -21,7 +21,7 @@ const getAllRecipes = asyncHandler(async (req, res) => {
 		queryObject.user = user
 	}
 
-	const recipes = await Recipe.find(queryObject).sort('createdAt')
+	const recipes = await Recipe.find(queryObject).sort({ createdAt: 'desc' })
 
 	res.status(200).json(recipes)
 })
