@@ -126,6 +126,7 @@ function Create() {
 														<option value='salad'>Salad</option>
 														<option value='snack'>Snack</option>
 														<option value='smoothie'>Smoothie</option>
+														<option value='sauce'>Sauce</option>
 													</select>
 												</Col>
 											</Row>
