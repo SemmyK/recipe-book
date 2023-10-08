@@ -8,7 +8,7 @@ import RecipeList from '../components/RecipeList'
 import { ScaleLoader } from 'react-spinners'
 //redux
 import { useSelector } from 'react-redux'
-
+ 
 function SearchResults() {
 	const { color, mode } = useTheme()
 	const location = useLocation()

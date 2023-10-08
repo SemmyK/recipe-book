@@ -65,7 +65,7 @@ function SingleRecipe() {
 						</Card.Subtitle>
 						<div className='card-text'>
 							<ol style={{ textAlign: 'left' }}>
-								{recipe !== {} &&
+								{recipe.length !== 0 &&
 									recipe.method
 										.split('.')
 										.map((step, index) => <li key={index}>{step}</li>)}

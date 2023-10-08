@@ -44,6 +44,7 @@ function Home() {
 					case 'smoothie':
 					case 'soup':
 					case 'sauce':
+					case 'dessert':
 						return document.type === filter
 					default:
 						return true

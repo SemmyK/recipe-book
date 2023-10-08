@@ -128,6 +128,7 @@ function Create() {
 														<option value='smoothie'>Smoothie</option>
 														<option value='sauce'>Sauce</option>
 														<option value='side'>Side dish</option>
+														<option value='dessert'>Dessert</option>
 													</select>
 												</Col>
 											</Row>
@@ -185,7 +186,7 @@ function Create() {
 											<p>
 												{' '}
 												Current ingredients:
-												{ingredients !== [] &&
+												{ingredients.length !== 0 &&
 													ingredients.map(ing => (
 														<span key={ing}> {ing} |</span>
 													))}
