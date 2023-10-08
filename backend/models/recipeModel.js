@@ -20,7 +20,16 @@ const recipeSchema = mongoose.Schema(
 		},
 		type: {
 			type: String,
-			enum: ['meal', 'soup', 'salad', 'smoothie', 'snack', 'sauce', 'side'],
+			enum: [
+				'meal',
+				'soup',
+				'salad',
+				'smoothie',
+				'snack',
+				'sauce',
+				'side',
+				'dessert',
+			],
 			default: 'meal',
 			required: [true, 'Please select a type for a recipe.'],
 		},

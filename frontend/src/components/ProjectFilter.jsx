@@ -10,6 +10,7 @@ const filterList = [
 	'snack',
 	'sauce',
 	'side',
+	'dessert',
 ]
 
 export default function ProjectFilter({ changeFilter, currentFilter }) {
